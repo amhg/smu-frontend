@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+
+body{
+  background-color:#545454;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.container{
+  height: 100vh;
+}
+
+.card{
+
+  width: 380px;
+  border: none;
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #fff;
+  position: relative;
+  height: 370px;
+}
+
+.upper{
+
+  height: 100px;
+
+}
+
+.upper img{
+
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.user{
+  position: relative;
+}
+
+.profile img{
+
+
+  height: 80px;
+  width: 80px;
+  margin-top:2px;
+
+
+}
+
+.profile{
+
+  position: absolute;
+  top:-50px;
+  left: 38%;
+  height: 90px;
+  width: 90px;
+  border:3px solid #fff;
+
+  border-radius: 50%;
+
+}
+
+.follow{
+
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.stats span{
+
+  font-size: 29px;
+}
+
+.middle-container{
+  background-color: #eee;
+  border-radius: 12px;
+
+}
+.middle-container:hover {
+  border: 1px solid #5957f9;
+}
+
+.dollar-div{
+  background-color: #5957f9;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.round-div{
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.dollar{
+  font-size: 16px !important;
+  color: #5957f9 !important;
+  font-weight: bold !important;
+}
+
+
+.current-balance{
+  font-size: 15px;
+  color: #272727;
+  font-weight: bold;
+}
+.amount{
+  color: #5957f9;
+  font-size: 16px;
+  font-weight: bold;
+}
+.dollar-sign{
+  font-size: 16px;
+  color: #272727;
+  font-weight: bold;
+}
+
+.recent-border{
+  border-left: 2px solid #5957f9;
+  display: flex;
+  align-items: center;
+
+}
+.recent-border:hover {
+  border-bottom: 1px solid #dee2e6!important;
+}
+
+button:disabled{
+  opacity: 0.3;
+}
