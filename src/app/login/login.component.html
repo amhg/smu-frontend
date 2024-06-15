@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="logo">
+    <img src="assets/image/virus.png" alt="">
+  </div>
+  <div class="text-center mt-4 name">
+    Samu
+  </div>
+  <form class="p-3 mt-3">
+    <div class="form-field d-flex align-items-center">
+      <span class="far fa-user"></span>
+      <input type="text" [(ngModel)]="username" name="username" [ngModelOptions]="{standalone: true}"
+             id="username" placeholder="Usuario">
+    </div>
+    <div class="form-field d-flex align-items-center">
+      <span class="fas fa-key"></span>
+      <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}"
+             name="password" id="pwd" placeholder="Contraseña">
+    </div>
+    <button class="btn mt-3" (click)="Login()">Acceso</button>
+  </form>
+  <div class="text-center fs-6">
+    <a href="#">Olvidaste tu contraseña?</a> or <a href="#">Registro</a>
+  </div>
+</div>
