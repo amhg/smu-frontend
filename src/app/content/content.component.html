@@ -1,0 +1,26 @@
+<!-- profile-editor.component.html -->
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+
+  <!-- FormArray for favorite books -->
+  <div formArrayName="favoriteBooks">
+    <h3>Favorite Books</h3>
+    <button type="button" (click)="addBook()">Add Book</button>
+    <div *ngFor="let book of favoriteBooks.controls; let i=index">
+      <label>
+        Book {{ i + 1 }}:
+        <input type="text" [formControlName]="i">
+      </label>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit">Submit</button>
+</form>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {RestapiService} from "../rest-api/restapi.service";
 import {HttpClient} from "@angular/common/http";
 import {ToastService} from "../service/toast.service";
+import {LoginMessage} from "../employee/employeeModel/employee";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   username = '';
   password = '';
   isSuccess = false;
+  rfc = '';
 
   constructor(private service: RestapiService,
               private router:Router,
@@ -31,21 +33,24 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
 
+
     /*
     const headers= new HttpHeaders()
       .set('content-type', 'application/json')
       .set('Access-Control-Allow-Origin', '*');
 */
 
-    this.http.post("http://localhost:8080/api/v1/login", bodyData)
+    this.http.post<LoginMessage>("http://localhost:8080/api/v1/login", bodyData)
       .subscribe(
-      ((resultData: any) => {
-        console.log("Login Message: " + resultData);
-        if(resultData.message == "Login Success") {
+      (LoginMessage => {
+        console.log("Login Message: " + LoginMessage.rfc + LoginMessage.status);
+        this.rfc = LoginMessage.rfc;
+        if(LoginMessage.status) {
           this.isSuccess = true;
-          //alert("You are Registered!")
-          this.router.navigate(['/employee', bodyData.username]);
+          alert("You are Registered!: " + this.rfc)
+          this.router.navigate(['/employee', this.rfc]);
         }
+
       })
     )
   }

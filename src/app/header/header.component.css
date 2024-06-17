@@ -1,0 +1,102 @@
+.custom-menu {
+  color:#4D004D;
+}
+
+.custom-menu:hover {
+  color: #E099E0;
+}
+
+.custom-menu:focus {
+  color: #E099E0;
+}
+
+.custom-menu:active {
+  color:#E099E0;
+}
+
+.custom-font-smaller {
+  font-size:0.9rem;
+}
+
+.custom-form-purple {
+  border: 2px solid #800080;
+}
+
+.custom-form-purple:focus {
+  border: 2px solid #800080;
+  box-shadow: 0 0 0.1rem 0.1rem #EFCCEF;
+}
+
+.custom-btn-purple {
+  color: #F7E5F7 !important;
+  background-color: #4D004D;
+  border: 2px solid #800080;
+}
+
+.custom-btn-purple:hover {
+  color: #4D004D;
+  background-color: #E8B2E8;
+}
+
+.custom-btn-purple:focus {
+  color: #4D004D;
+  background-color: #E8B2E8;
+  box-shadow: 0px 0px 0rem 0.2rem #E099E0;
+}
+
+.custom-bg-purple {
+  background-color: #4D004D;
+}
+
+.custom-font-larger {
+  font-size:1.2rem;
+}
+
+.custom-icon-large {
+  font-size:3rem;
+}
+
+a.store-link:link {
+  color:#000000;
+  text-decoration:none;
+}
+
+a.store-link:visited {
+  color:#000000;
+  text-decoration:none;
+}
+
+a.store-link:hover {
+  color:#666666;
+  text-decoration:none;
+}
+a.store-link:active {
+  Color: #666666;
+  text-decoration:none;
+}
+
+.custom-name {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 2rem;
+}
+
+.custom-date {
+  foint-family: Arial, sans-serif;
+  font-size: 0.75rem;
+}
+
+/* .custom-menu {
+	font-size: 0.9rem;
+} */
+
+/* .custom-font-smaller {
+	font-size: 0.9rem;
+} */
+
+h2.brown {
+  color: #A52A2A;
+}
+
+h3.choco {
+  color: #D2691E;
+}
