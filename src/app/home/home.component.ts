@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  registryValue: string = ''
+  registryType: string = ''
+  divs: number[] = [];
+
+ createDiv(){
+   this.registryType = this.registryValue;
+   this.divs.push(this.divs.length);
+ }
 
 }

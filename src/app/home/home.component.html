@@ -43,6 +43,33 @@
 
   </div>
 
+  <div class="test">
+    <hr>
+    <div class="item1" style="flex: 1">
+      <div class="p-2">
+        <input [(ngModel)]="registryValue"
+          class="radio-input" type="radio" id="ingreso" name="registryType" value="Ingreso"/>
+        <label for="ingreso">Ingreso</label>
+      </div>
+      <div class="p-2">
+        <input [(ngModel)]="registryValue"
+          class="radio-input" type="radio" id="salida" name="registryType" value="Salida"/>
+        <label for="salida">Salida</label>
+      </div>
+      <button class="btn btn-primary btn-sm follow"
+              (click)="createDiv()"
+      >Registrar</button>
+      </div>
+
+    <div class="item2" style="flex: 1">
+      <div class="time-tracker" *ngFor="let div of divs" id="div{{div}}">
+        <div class="current-balance" style="flex: 1">{{registryType}}</div>
+        <div class="amount" style="flex: 1">'00:00:00'</div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="card">
     <div class="row no-gutters row-bordered">
       <div class="d-flex col-md align-items-center">
