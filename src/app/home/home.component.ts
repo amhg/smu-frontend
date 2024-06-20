@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {timeTracking} from "../employee/employeeModel/employee";
+import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -7,12 +9,22 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   registryValue: string = ''
-  registryType: string = ''
-  divs: number[] = [];
+  registryRadio: string = ''
 
- createDiv(){
-   this.registryType = this.registryValue;
-   this.divs.push(this.divs.length);
+  tracking: timeTracking[] =[];
+  employeeCheckInTime: string = ''
+
+
+
+ addTracking(){
+   this.registryRadio = this.registryValue;
+   let currentDate = new Date();
+   this.employeeCheckInTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+
+   this.tracking.push({registryType: this.registryRadio, date: this.employeeCheckInTime });
+   console.log(this.tracking);
+
+
  }
 
 }
