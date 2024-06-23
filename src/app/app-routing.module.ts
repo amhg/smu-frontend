@@ -12,7 +12,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'home/:rfc',
+    path: 'perfil/:rfc',
     component: HomeComponent
   },
   {

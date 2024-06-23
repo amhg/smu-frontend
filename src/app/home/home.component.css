@@ -59,12 +59,6 @@ body{
 }
 
 .item2 {
-  display: block;
-  border-style: solid;
-  border-color: #cbced1;
-  border-radius: 5px;
-  background-color: #f4f4f4;
-
   margin-left: 7em;
   align-content: center;
   text-align: center;
@@ -95,12 +89,13 @@ body{
 }
 
 .time-tracker {
-  display: flex;
   border-style: solid;
-  border-color: #cbced1;
+  border-color: #F3F2F2;
+  background: #F3F2F2;
   border-radius: 5px;
   margin-bottom: 15px;
   padding: 8px;
+  text-align: center;
 }
 
 

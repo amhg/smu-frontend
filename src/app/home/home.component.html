@@ -2,11 +2,14 @@
 <div class="container bootdey flex-grow-1 container-p-y">
 
   <div class="media align-items-center py-3 mb-3">
+    <img src="assets/image/profile2.png" alt="avatar image" class="d-block ui-w-100 rounded-circle mb-4">
+    <!--
     <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar image" class="d-block ui-w-100 rounded-circle">
+    -->
     <div class="media-body ml-4">
       <h4 class="font-weight-bold mb-0">{{personaData.nombre +" " + personaData.apellido1}}</h4>
-      <div class="text-muted mb-2">ID: 3425433</div>
-      <a href="" class="btn btn-primary btn-sm">Edit</a>&nbsp;
+      <div class="text-muted mb-2">CURP: {{personaData.curp}}</div>
+      <a href="" class="btn btn-primary btn-sm">Editar</a>&nbsp;
       <a href="" class="btn btn-default btn-sm">Profile</a>&nbsp;
       <a href="" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
     </div>
@@ -30,11 +33,11 @@
         </tr>
         <tr>
           <td>Area:</td>
-          <td>ENFERMERIA/ADMINISTRACION</td>
+          <td>{{personaData.perfil.area}}</td>
         </tr>
         <tr>
           <td>Ubicacion Actual:</td>
-          <td>HOSPITAL GENERAL SALTILLO</td>
+          <td>{{personaData.perfil.perfilHospital.descripcion}}</td>
         </tr>
         </tbody>
       </table>
@@ -43,37 +46,49 @@
 
   </div>
 
-  <div class="test">
-    <hr>
-    <div class="item1" style="flex: 1">
+  <div class="card mb-4 align-items-center">
+    <div class="card-body">
       <div class="p-2">
         <h6>Selecciona el tipo de Registro:</h6>
         <hr>
         <input #radioIngreso [(ngModel)]="registryValue"
-          class="radio-input" type="radio" id="ingreso" name="registryType" value="Ingreso"/>
-        <label for="ingreso">Ingreso</label>
+               class="radio-input" type="radio" id="ingreso" name="registryType" value="Ingreso"/>
+        <label for="ingreso" style="margin-left: 5px">Ingreso</label>
       </div>
       <div class="p-2">
         <input #radioSalida [(ngModel)]="registryValue"
-          class="radio-input" type="radio" id="salida" name="registryType" value="Salida"/>
-        <label for="salida">Salida</label>
+               class="radio-input" type="radio" id="salida" name="registryType" value="Salida"/>
+        <label for="salida" style="margin-left: 5px">Salida</label>
       </div>
       <button class="btn btn-primary btn-sm follow"
               [disabled]="!(radioIngreso.checked || radioSalida.checked)"
               (click)="addTracking()"
       >Registrar</button>
-      </div>
+    </div>
 
-    <div class="item2" style="flex: 1">
-      <div *ngIf="tracking.length > 0">
-        <div class="time-tracker"
-             *ngFor="let trackEl of tracking; let i = index">
-          <div class="current-balance" style="flex: 1">{{trackEl['registryType']}}</div>
-          <div class="amount" style="flex: 1">{{trackEl['date']}}</div>
-        </div>
-      </div>
-      </div>
+  <hr class="border-light m-0">
   </div>
+
+  <div class="card mb-4" *ngIf="tracking.length > 0">
+    <div class="card-body mb-2">
+      <table class="table" style="text-align: center">
+        <thead class="thead-light">
+        <tr>
+          <th scope="col">Tipo de Registro</th>
+          <th scope="col">Dia</th>
+          <th scope="col">Hora</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let trackEl of tracking; let i = index">
+          <th scope="row">{{trackEl['registryType']}}</th>
+          <th class="amount">{{trackEl['time']}}</th>
+          <td class="amount">{{trackEl['date']}}</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
 
 
   <div class="card">

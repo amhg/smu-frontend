@@ -18,6 +18,7 @@ export class HomeComponent {
   registryRadio: string = ''
   tracking: timeTracking[] =[];
   employeeCheckInTime: string = ''
+  employeeCheckInDay: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient){
     this.employeeRfc = '';
@@ -43,9 +44,14 @@ export class HomeComponent {
  addTracking(){
    this.registryRadio = this.registryValue;
    let currentDate = new Date();
-   this.employeeCheckInTime = currentDate.toLocaleString();
+   this.employeeCheckInTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+   this.employeeCheckInDay = currentDate.getDay() + "/" + currentDate.getMonth() + "/" + currentDate.getFullYear();
 
-   this.tracking.push({registryType: this.registryRadio, date: this.employeeCheckInTime });
+   this.tracking.push({
+         registryType: this.registryRadio,
+         date: this.employeeCheckInTime,
+         time: this.employeeCheckInDay
+   });
    console.log(this.tracking);
  }
 

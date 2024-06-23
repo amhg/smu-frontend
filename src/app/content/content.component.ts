@@ -7,9 +7,10 @@ import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
   styleUrl: './content.component.css'
 })
 export class ContentComponent {
-  profileForm: FormGroup;
+  //profileForm: FormGroup;
   registryValue: string = ''
 
+  /*
   // Constructor to initialize FormBuilder
   constructor(private formBuilder: FormBuilder) {
     this.profileForm = this.formBuilder.group({
@@ -42,5 +43,7 @@ export class ContentComponent {
     console.log(this.registryValue)
     //this.favoriteBooks.push(this.formBuilder.control(''));
   }
+  */
+
 
 }

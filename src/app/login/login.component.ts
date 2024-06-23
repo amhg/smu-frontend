@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
         this.rfc = LoginMessage.rfc;
         if(LoginMessage.status) {
           this.isSuccess = true;
-          alert("You are Registered!: " + this.rfc)
-          this.router.navigate(['/home', this.rfc]);
+          //alert("You are Registered!: " + this.rfc)
+          this.router.navigate(['/perfil', this.rfc]);
         }
 
       })
