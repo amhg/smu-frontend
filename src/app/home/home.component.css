@@ -13,6 +13,12 @@ body{
   box-shadow: 0 1px 4px rgba(24,28,33,0.012);
 }
 
+.size-new {
+  width: 250px;
+  height: 180px;
+  margin-bottom: 20px;
+}
+
 .user-view-table td:first-child {
   width: 9rem;
 }

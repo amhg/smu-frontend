@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {Persona, timeTracking} from "../employee/employeeModel/employee";
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import { Persona, timeTracking} from "../employee/employeeModel/employee";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 
@@ -19,6 +18,7 @@ export class HomeComponent {
   tracking: timeTracking[] =[];
   employeeCheckInTime: string = ''
   employeeCheckInDay: string = '';
+  errorMessage: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient){
     this.employeeRfc = '';
@@ -47,12 +47,29 @@ export class HomeComponent {
    this.employeeCheckInTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
    this.employeeCheckInDay = currentDate.getDay() + "/" + currentDate.getMonth() + "/" + currentDate.getFullYear();
 
+   let bodyTrack = {
+     curp: this.personaData.curp,
+     tipoRegistro: this.registryRadio,
+     hora: this.employeeCheckInTime,
+     dia: this.employeeCheckInDay
+   }
+   console.log("BodyTrack: " + bodyTrack);
+
+   this.http.post("http://localhost:8080/api/v1/persona/registroDia", bodyTrack).subscribe({
+     error: error => {
+       this.errorMessage = error.message;
+       console.error('There was an error!', error);
+     }
+   });
+
    this.tracking.push({
          registryType: this.registryRadio,
          date: this.employeeCheckInTime,
          time: this.employeeCheckInDay
    });
+
    console.log(this.tracking);
+
  }
 
 }
