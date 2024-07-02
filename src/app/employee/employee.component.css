@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
 
 
 body{
@@ -80,10 +80,24 @@ body{
 .middle-container{
   background-color: #eee;
   border-radius: 12px;
-
 }
+
+.middle-container-registry{
+  border: 2px solid #eee;
+  border-radius: 12px;
+}
+
+/*
 .middle-container:hover {
   border: 1px solid #5957f9;
+}
+*/
+.custom-control-input {
+  font-family: 'Muli', sans-serif;
+}
+
+.radio-input {
+  margin: 0.4rem;
 }
 
 .dollar-div{
@@ -138,3 +152,4 @@ body{
 button:disabled{
   opacity: 0.3;
 }
+

@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {Employee} from "./employeeModel/employee";
+import {Persona} from "./employeeModel/employee";
 
 @Component({
   selector: 'app-employee',
@@ -10,45 +10,55 @@ import {Employee} from "./employeeModel/employee";
 })
 export class EmployeeComponent implements OnInit, OnDestroy {
 
-  employeeUsername: string;
+  employeeRfc: string;
   private sub: any;
-  employeeData : Employee;
+  personaData : Persona;
   dateVal = new Date();
   employeeCheckInTime;
   employeeCheckOutTime;
+  isDisplayed = true;
   isCheckedIn = false;
   isCheckedOut = false;
   buttonStatus = "Registrar Ingreso";
+  registryValue: string = ''
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
-    this.employeeUsername = '';
-    this.employeeData = new Employee();
+    this.employeeRfc = '';
+    this.personaData = new Persona();
     this.employeeCheckInTime = '00:00:00';
     this.employeeCheckOutTime = '00:00:00';
-  }
+}
 
   ngOnInit() {
 
     this.sub = this.route.params.subscribe(params => {
-      this.employeeUsername = params['username'] // (+) converts string 'id' to a number
-      console.log("In Employee Component Username: " + this.employeeUsername);
+      this.employeeRfc = params['rfc'] // (+) converts string 'id' to a number
+      console.log("In Employee Component Rfc: " + this.employeeRfc);
     });
 
-    let httpParams = new HttpParams().set('username', this.employeeUsername);
+    let httpParams = new HttpParams().set('rfc', this.employeeRfc);
 
 
-    this.http.get<Employee>("http://localhost:8080/api/v1/employee", {params: httpParams})
+    this.http.get<Persona>("http://localhost:8080/api/v1/persona", {params: httpParams})
       .subscribe(
-        (employee => {
-          console.log(employee)
-          this.employeeData = employee;
+        (persona => {
+          console.log(persona)
+          this.personaData = persona;
         })
       );
   }
 
 
   trackTime() {
+    this.isCheckedIn = true;
+   /*
     let currentDate = new Date();
+    console.log("Radio button value: " + this.registryValue)
+    this.isCheckedIn = true;
+    this.employeeCheckInTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+   */
+
+    /*
     if(!this.isCheckedIn){
       this.employeeCheckInTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
       this.isCheckedIn = true;
@@ -59,7 +69,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
       this.isCheckedOut = true;
       this.buttonStatus = "Registro Finalizado";
     }
-
+*/
 
   }
 
